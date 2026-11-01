@@ -16,7 +16,13 @@ class Pokemon:
 
     # Метод для получения картинки покемона через API
     def get_img(self):
-        pass
+        url = f'https://pokeapi.co/api/v2/pokemon/{self.pokemon_number}'
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            return (data['sprites']['other']['home']['front_shiny'])
+        else:
+            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/21.png"
     
     # Метод для получения имени покемона через API
     def get_name(self):
@@ -36,6 +42,11 @@ class Pokemon:
     # Метод класса для получения картинки покемона
     def show_img(self):
         return self.img
+
+
+if __name__ == "__main__":
+    pokemon = Pokemon("test")
+    print(pokemon.info())
 
 
 

@@ -1,4 +1,4 @@
-import telebot 
+import telebot #ddsdd
 from config import token
 
 from logic import Pokemon
